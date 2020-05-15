@@ -7,101 +7,97 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-public class Aluno implements Serializable{
-	private static final long serialVersionUID = 1L;
+@Entity
+@Table(name = "tb_aluno")
+public class Aluno implements Serializable {
+	private static final long serialVersionUID = -2508272598242783067L;
 
-	@Entity
-	@Table(name = "tb_aluno")
-	public class Curso {
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "id_aluno", nullable = false)
+	private Long id;
 
-		@Id
-		@GeneratedValue(strategy = GenerationType.AUTO)
-		@Column(name = "id_aluno", nullable = false)
-		private Long id;
+	@Column(name = "nome", nullable = false)
+	private String nome;
 
-		@Column(name = "nome", nullable = false)
-		private String nome;
+	@Column(name = "rg", nullable = false)
+	private String rg;
 
-		@Column(name = "rg", nullable = false)
-		private String rg;
-		
-		@Column(name = "cpf", nullable = false)
-		private String cpf;
-		
-		@Column(name = "email", nullable = false)
-		private String email;
-		
-		@Column(name = "data_nasc", nullable = false)
-		private Integer data_nasc;
-		
-		@OneToOne
-		@JoinColumn(name = "id_curso")
-		private Curso curso;
+	@Column(name = "cpf", nullable = false)
+	private String cpf;
 
-		public Long getId() {
-			return id;
-		}
+	@Column(name = "email", nullable = false)
+	private String email;
 
-		public void setId(Long id) {
-			this.id = id;
-		}
+	@Column(name = "data_nasc", nullable = false)
+	private Integer data_nasc;
 
-		public String getNome() {
-			return nome;
-		}
+	//@OneToOne
+	//@JoinColumn(name = "id_curso") *TESTAR*
+	@Column(name = "id_curso", nullable = false)
+	private Curso curso;
 
-		public void setNome(String nome) {
-			this.nome = nome;
-		}
+	public Long getId() {
+		return id;
+	}
 
-		public String getRg() {
-			return rg;
-		}
+	public void setId(Long id) {
+		this.id = id;
+	}
 
-		public void setRg(String rg) {
-			this.rg = rg;
-		}
+	public String getNome() {
+		return nome;
+	}
 
-		public String getCpf() {
-			return cpf;
-		}
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
 
-		public void setCpf(String cpf) {
-			this.cpf = cpf;
-		}
+	public String getRg() {
+		return rg;
+	}
 
-		public String getEmail() {
-			return email;
-		}
+	public void setRg(String rg) {
+		this.rg = rg;
+	}
 
-		public void setEmail(String email) {
-			this.email = email;
-		}
+	public String getCpf() {
+		return cpf;
+	}
 
-		public Integer getData_nasc() {
-			return data_nasc;
-		}
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
+	}
 
-		public void setData_nasc(Integer data_nasc) {
-			this.data_nasc = data_nasc;
-		}
+	public String getEmail() {
+		return email;
+	}
 
-		public Curso getCurso() {
-			return curso;
-		}
+	public void setEmail(String email) {
+		this.email = email;
+	}
 
-		public void setCurso(Curso curso) {
-			this.curso = curso;
-		}
+	public Integer getData_nasc() {
+		return data_nasc;
+	}
 
-		@Override
-		public String toString() {
-			return "Curso [id=" + id + ", nome=" + nome + ", rg=" + rg + ", cpf=" + cpf + ", email=" + email
-					+ ", data_nasc=" + data_nasc + ", curso=" + curso + "]";
-		}
+	public void setData_nasc(Integer data_nasc) {
+		this.data_nasc = data_nasc;
+	}
+
+	public Curso getCurso() {
+		return curso;
+	}
+
+	public void setCurso(Curso curso) {
+		this.curso = curso;
+	}
+
+	@Override
+	public String toString() {
+		return "Aluno [id=" + id + ", nome=" + nome + ", rg=" + rg + ", cpf=" + cpf + ", email=" + email
+				+ ", data_nasc=" + data_nasc + ", curso=" + curso + "]";
 	}
 }

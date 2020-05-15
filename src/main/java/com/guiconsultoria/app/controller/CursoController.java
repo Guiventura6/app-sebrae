@@ -17,6 +17,7 @@ import com.guiconsultoria.app.entity.Curso;
 import com.guiconsultoria.app.repository.CursoRepository;
 
 @RestController
+@RequestMapping(value = "/cursos")
 public class CursoController {
 
 	@Autowired
