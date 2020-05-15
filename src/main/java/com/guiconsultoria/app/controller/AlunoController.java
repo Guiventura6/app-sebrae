@@ -10,11 +10,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.guiconsultoria.app.dto.AlunoDto;
 import com.guiconsultoria.app.entity.Aluno;
 import com.guiconsultoria.app.repository.AlunoRepository;
 
+@RestController
 @RequestMapping(value = "/alunos")
 public class AlunoController {
 
@@ -36,6 +38,7 @@ private static final Logger	log = LoggerFactory.getLogger(CursoController.class)
 		a.setRg(AlunoDto.getRg());
 		a.setCpf(AlunoDto.getCpf());
 		a.setEmail(AlunoDto.getEmail());
+		a.setCurso(AlunoDto.getCurso());
 		a.setData_nasc(AlunoDto.getData_nasc());
 		return a;
 

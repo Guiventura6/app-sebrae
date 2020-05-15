@@ -1,8 +1,7 @@
 package com.guiconsultoria.app.dto;
 
 import java.io.Serializable;
-
-import com.guiconsultoria.app.entity.Curso;
+import java.util.Date;
 
 public class AlunoDto implements Serializable{
 	private static final long serialVersionUID = 2627022493882160795L;
@@ -11,9 +10,9 @@ public class AlunoDto implements Serializable{
 	private String rg;
 	private String cpf;
 	private String email;
-	private Integer data_nasc;
+	private Date data_nasc;
 	
-	private Curso curso; 
+	private Integer curso; 
 	
 	public String getNome() {
 		return nome;
@@ -39,17 +38,17 @@ public class AlunoDto implements Serializable{
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public Integer getData_nasc() {
+	public Date getData_nasc() {
 		return data_nasc;
 	}
-	public void setData_nasc(Integer data_nasc) {
+	public void setData_nasc(Date data_nasc) {
 		this.data_nasc = data_nasc;
 	}
 	
-	public Curso getCurso() {
+	public Integer getCurso() {
 		return curso;
 	}
-	public void setCurso(Curso curso) {
+	public void setCurso(Integer curso) {
 		this.curso = curso;
 	}
 	

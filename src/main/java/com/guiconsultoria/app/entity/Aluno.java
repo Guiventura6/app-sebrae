@@ -1,6 +1,7 @@
 package com.guiconsultoria.app.entity;
 
 import java.io.Serializable;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -32,12 +33,12 @@ public class Aluno implements Serializable {
 	private String email;
 
 	@Column(name = "data_nasc", nullable = false)
-	private Integer data_nasc;
+	private Date data_nasc;
 
 	//@OneToOne
 	//@JoinColumn(name = "id_curso") *TESTAR*
 	@Column(name = "id_curso", nullable = false)
-	private Curso curso;
+	private Integer curso;
 
 	public Long getId() {
 		return id;
@@ -79,19 +80,19 @@ public class Aluno implements Serializable {
 		this.email = email;
 	}
 
-	public Integer getData_nasc() {
+	public Date getData_nasc() {
 		return data_nasc;
 	}
 
-	public void setData_nasc(Integer data_nasc) {
+	public void setData_nasc(Date data_nasc) {
 		this.data_nasc = data_nasc;
 	}
 
-	public Curso getCurso() {
+	public Integer getCurso() {
 		return curso;
 	}
 
-	public void setCurso(Curso curso) {
+	public void setCurso(Integer curso) {
 		this.curso = curso;
 	}
 
