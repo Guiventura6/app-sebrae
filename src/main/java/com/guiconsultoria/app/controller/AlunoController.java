@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.guiconsultoria.app.dto.AlunoDto;
 import com.guiconsultoria.app.entity.Aluno;
 import com.guiconsultoria.app.repository.AlunoRepository;
 
@@ -24,18 +25,21 @@ private static final Logger	log = LoggerFactory.getLogger(CursoController.class)
 	
 	@PostMapping
 	@RequestMapping(value = "/cadastrar")
-	public void cadastroAluno(@RequestBody Aluno aluno) {
-		//Curso curso = this.transformeEntity(aluno);
+	public void cadastroAluno(@RequestBody AlunoDto alunoDto) {
+		Aluno aluno = this.transformeEntity(alunoDto);
 		alunoRepository.save(aluno);
 	}
 
-	/*private Curso transformeEntity(CursoDto cursoDto) {
-		Curso c = new Curso();
-		c.setNome(cursoDto.getNome());
-		c.setDescricao(cursoDto.getDescricao());
-		return c;
+	private Aluno transformeEntity(AlunoDto AlunoDto) {
+		Aluno a = new Aluno();
+		a.setNome(AlunoDto.getNome());
+		a.setRg(AlunoDto.getRg());
+		a.setCpf(AlunoDto.getCpf());
+		a.setEmail(AlunoDto.getEmail());
+		a.setData_nasc(AlunoDto.getData_nasc());
+		return a;
 
-	}*/
+	}
 	
 	@GetMapping(value = "/listarAlunos")
 	public ResponseEntity <List<Aluno>> listarAlunos(){
@@ -48,7 +52,7 @@ private static final Logger	log = LoggerFactory.getLogger(CursoController.class)
 		List<Aluno> alunos = alunoRepository.findAll();
 		
 		for(Aluno c: alunos) {
-			 log.debug("Curso: ", c.toString());
+			 log.debug("Aluno: ", c.toString());
 		}
 		return alunos;
 	}
